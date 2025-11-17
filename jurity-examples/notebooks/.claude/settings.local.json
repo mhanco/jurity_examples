@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jupyter nbconvert:*)",
+      "WebFetch(domain:fidelity.github.io)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
