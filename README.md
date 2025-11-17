@@ -85,7 +85,7 @@ jupyter notebook
 
 **Metrics Covered:**
 - **FNR Difference** - Missing qualified candidates (talent loss)
-- **FOR Difference** - Wrongly rejecting people (false accusations)
+- **FOR Difference** - Wrongly rejecting people (false rejections / missed opportunities)
 - **FPR Difference** - Wrongly approving people (risk exposure) *[Supplementary diagnostic metric computed manually in notebooks]*
 
 **When to Use:**
@@ -246,7 +246,6 @@ Jurity does:
 Jurity does not:
 - Debias the model
 - Optimize thresholds
-- Perform automated bias mitigation
 
 **Your Workflow:**
 1. Train model
@@ -307,7 +306,7 @@ Contributions are welcome! Areas for improvement:
 
 ## License
 
-This project is part of the `jurity-examples` repository and is intended for educational purposes.
+This project is part of the `jurity_examples` repository and is intended for educational purposes.
 
 ## Citation
 
@@ -331,6 +330,8 @@ If you use these notebooks in your research or work, please cite:
 ---
 
 ## Quick Reference: All Metrics at a Glance
+
+**Note:** Thresholds below are illustrative starting points, not hard regulatory standards.
 
 | Category | Metric | Focus | Threshold |
 |----------|--------|-------|-----------|
