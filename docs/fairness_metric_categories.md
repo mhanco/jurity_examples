@@ -4,7 +4,7 @@
 
 ## Overview
 
-When deploying AI systems in business contexts, different stakeholders need different fairness guarantees. This guide categorizes 10 key fairness metrics into practical groups that align with business objectives and regulatory requirements.
+When deploying AI systems in business contexts, different stakeholders need different fairness guarantees. This guide demonstrates **9 core fairness metrics from Jurity** plus **1 supplementary diagnostic metric** (FPR Difference, computed manually), organized into practical groups that align with business objectives and regulatory requirements.
 
 ---
 
@@ -18,9 +18,9 @@ These metrics help organizations meet legal standards and avoid discrimination l
 | Metric | What It Measures | When To Use |
 |--------|------------------|-------------|
 | **Disparate Impact** | 80% Rule compliance for employment law | Hiring, lending, any EEOC-regulated decisions |
-| **Statistical Parity** | Equal treatment regardless of qualifications | When legal requires identical treatment rates |
+| **Statistical Parity** | Selection-rate parity across groups | Initial screening for potential discrimination |
 
-**Key Insight:** These focus on *equal treatment* rather than *fair outcomes*
+**Key Insight:** These focus on *selection-rate parity*, which regulators use to screen for potential discrimination, though legal analysis also considers job-relatedness and business necessity
 
 ---
 
@@ -32,7 +32,7 @@ These ensure that qualified people get fair opportunities and innocent people ar
 | Metric | What It Measures | When To Use |
 |--------|------------------|-------------|
 | **Equal Opportunity** | Qualified candidates get equal chances | Hiring, admissions, promotions |
-| **Average Odds (Equalized Odds)** | Fair treatment of both qualified and innocent people | High-stakes decisions with dual concerns |
+| **Average Odds** | Metric summarizing TPR/FPR differences across groups (assesses proximity to Equalized Odds) | High-stakes decisions with dual concerns |
 | **Predictive Equality** | Innocent individuals protected from false accusations | Criminal justice, fraud detection |
 
 **Key Insight:** These focus on *fair outcomes* based on actual merit
@@ -48,7 +48,9 @@ These identify exactly where your model makes unfair mistakes, enabling targeted
 |--------|------------------|-------------|
 | **FNR Difference** | Missing qualified candidates (talent loss) | When false negatives are costly |
 | **FOR Difference** | Wrongly rejecting people (false accusations) | When rejection has serious consequences |
-| **FPR Difference** | Wrongly approving people (risk exposure) | When false positives create risk |
+| **FPR Difference*** | Wrongly approving people (risk exposure) | When false positives create risk |
+
+*\*FPR Difference is a supplementary diagnostic metric computed manually in the notebooks (not part of Jurity's core API).*
 
 **Key Insight:** These help diagnose and fix *specific bias problems*
 
@@ -61,8 +63,8 @@ These ensure economic benefits and opportunities are distributed fairly across d
 
 | Metric | What It Measures | When To Use |
 |--------|------------------|-------------|
-| **Theil Index** | How fairly benefits are distributed across groups | Resource allocation, economic impact assessment |
-| **Generalized Entropy Index** | Broader measure of outcome inequality | Policy analysis, societal impact studies |
+| **Theil Index** | How unevenly outcomes are distributed across groups | Resource allocation, economic impact assessment |
+| **Generalized Entropy Index** | Inequality measure with adjustable sensitivity | Policy analysis, societal impact studies |
 
 **Key Insight:** These focus on *fair distribution* of economic outcomes
 
@@ -126,9 +128,9 @@ These ensure economic benefits and opportunities are distributed fairly across d
 
 ## 💡 Key Principles
 
-### **Equal Treatment vs. Fair Outcomes**
-- **Legal Compliance:** Focuses on equal treatment (same rates)
-- **Merit-Based:** Focuses on fair outcomes (based on qualifications)
+### **Selection-Rate Parity vs. Merit-Based Outcomes**
+- **Legal Compliance:** Focuses on selection-rate parity as an initial screen for discrimination (though legal frameworks allow differences justified by job-relatedness and business necessity)
+- **Merit-Based:** Focuses on fair outcomes based on actual qualifications
 
 ### **Prevention vs. Detection**
 - **Merit-Based:** Prevents unfair treatment

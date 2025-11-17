@@ -6,7 +6,7 @@ This repository contains interactive Jupyter notebooks that teach practitioners 
 
 ## Overview
 
-When deploying AI systems in business contexts, different stakeholders need different fairness guarantees. This collection of notebooks organizes 10 key fairness metrics into practical categories aligned with business objectives and regulatory requirements.
+When deploying AI systems in business contexts, different stakeholders need different fairness guarantees. This collection of notebooks demonstrates **9 core fairness metrics from Jurity** plus **1 supplementary diagnostic metric** (FPR Difference, computed manually), organized into practical categories aligned with business objectives and regulatory requirements.
 
 ### What You'll Learn
 
@@ -31,7 +31,7 @@ pip install jurity pandas numpy matplotlib seaborn scikit-learn jupyter
 
 ```bash
 # Navigate to the notebook directory
-cd notebook-examples
+cd notebooks
 
 # Start Jupyter
 jupyter notebook
@@ -48,14 +48,14 @@ jupyter notebook
 
 **Metrics Covered:**
 - **Disparate Impact** - 80% Rule compliance for employment law
-- **Statistical Parity** - Equal treatment regardless of qualifications
+- **Statistical Parity** - Selection-rate parity across demographic groups
 
 **When to Use:**
 - Hiring, lending, or any EEOC-regulated decisions
 - When legal compliance is mandatory
 - Public sector or government contracting
 
-**Key Insight:** These metrics focus on *equal treatment* rather than *fair outcomes*
+**Key Insight:** These metrics focus on *selection-rate parity*, which is often how regulators screen for potential discrimination, even though legal analysis also considers job-relatedness and business necessity
 
 ---
 
@@ -66,7 +66,7 @@ jupyter notebook
 
 **Metrics Covered:**
 - **Equal Opportunity** - Qualified candidates get equal chances
-- **Average Odds (Equalized Odds)** - Fair treatment of both qualified and innocent people
+- **Average Odds** - Metric summarizing TPR/FPR differences across groups (used to assess how close you are to Equalized Odds)
 - **Predictive Equality** - Innocent individuals protected from false accusations
 
 **When to Use:**
@@ -86,7 +86,7 @@ jupyter notebook
 **Metrics Covered:**
 - **FNR Difference** - Missing qualified candidates (talent loss)
 - **FOR Difference** - Wrongly rejecting people (false accusations)
-- **FPR Difference** - Wrongly approving people (risk exposure)
+- **FPR Difference** - Wrongly approving people (risk exposure) *[Supplementary diagnostic metric computed manually in notebooks]*
 
 **When to Use:**
 - Debugging bias issues in existing models
@@ -103,8 +103,8 @@ jupyter notebook
 **Focus:** Ensuring fair distribution of economic benefits
 
 **Metrics Covered:**
-- **Theil Index** - How fairly benefits are distributed across groups
-- **Generalized Entropy Index** - Broader measure of outcome inequality
+- **Theil Index** - Measures how unevenly outcomes are distributed (high = concentrated in one group, low = even distribution)
+- **Generalized Entropy Index** - Similar inequality measure with adjustable sensitivity to different parts of the distribution
 
 **When to Use:**
 - Resource allocation decisions
@@ -141,7 +141,7 @@ Not sure which metrics to use? Start here:
 └───────────────────────────────────────────┘
 ```
 
-See `fairness_metric_categories.md` for detailed stakeholder-specific guidance.
+See `docs/fairness_metric_categories.md` for detailed stakeholder-specific guidance.
 
 ## Recommended Learning Path
 
@@ -177,9 +177,9 @@ This dataset is ideal for demonstrating fairness metrics because:
 
 ## Key Concepts
 
-### Equal Treatment vs Fair Outcomes
-- **Legal Compliance:** Focuses on equal treatment (same rates)
-- **Merit-Based:** Focuses on fair outcomes (based on qualifications)
+### Selection-Rate Parity vs Merit-Based Outcomes
+- **Legal Compliance:** Focuses on selection-rate parity as an initial screen for discrimination (though legal analysis also considers job-relatedness and business necessity)
+- **Merit-Based:** Focuses on fair outcomes based on actual qualifications
 
 ### Individual vs Societal Fairness
 - **Merit-Based + Performance Gap:** Individual-level fairness
@@ -221,10 +221,24 @@ Different stakeholders need different information:
 ### Library: Jurity
 These notebooks use [Jurity](https://github.com/fidelity/jurity), an open-source fairness metrics library developed by Fidelity Investments.
 
+**9 Core Jurity Metrics Demonstrated:**
+1. **Disparate Impact** - Legal compliance (80% Rule)
+2. **Statistical Parity** - Equal treatment across groups
+3. **Equal Opportunity** - Fair chances for qualified individuals
+4. **Average Odds** - Comprehensive merit-based fairness metric
+5. **Predictive Equality** - Protection for innocent individuals
+6. **FNR Difference** - False negative rate gaps
+7. **FOR Difference** - False omission rate gaps
+8. **Theil Index** - Measures how unevenly outcomes are distributed
+9. **Generalized Entropy Index** - Inequality measure with adjustable sensitivity
+
+**Supplementary Diagnostic Metric:**
+- **FPR Difference** - False positive rate gaps (computed manually in notebooks as an additional diagnostic tool)
+
 **Key Features:**
 - Comprehensive fairness metric collection
 - Simple, consistent API
-- Production-ready implementations
+- Tested for applied work
 - Active maintenance and support
 
 ### Model: Random Forest Classifier
@@ -254,14 +268,14 @@ The notebooks use scikit-learn's Random Forest for demonstrations:
 ## Project Structure
 
 ```
-notebook-examples/
-├── README.md                              # This file
-├── fairness_metric_categories.md          # Stakeholder decision guide
+README.md                              # This file
+docs/
+└── fairness_metric_categories.md          # Stakeholder decision guide
+notebooks/
 ├── 1_legal_compliance_metrics.ipynb       # Legal/regulatory fairness
 ├── 2_merit_based_fairness_metrics.ipynb   # Merit and qualification fairness
 ├── 3_performance_gap_metrics.ipynb        # Diagnostic bias detection
-├── 4_economic_fairness_metrics.ipynb      # Societal distribution fairness
-└── .gitignore
+└── 4_economic_fairness_metrics.ipynb      # Societal distribution fairness
 ```
 
 ## Contributing
@@ -310,7 +324,7 @@ If you use these notebooks in your research or work, please cite:
 | **Performance Gap** | FNR Difference | Missing talent | <5% difference |
 | | FOR Difference | False rejections | <5% difference |
 | | FPR Difference | False approvals | <5% difference |
-| **Economic** | Theil Index | Benefit distribution | <0.10 |
+| **Economic** | Theil Index | Uneven distribution of benefits | <0.10 |
 | | Gen. Entropy Index | Comprehensive inequality | <0.15 |
 
 ---
