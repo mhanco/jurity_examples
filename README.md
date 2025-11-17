@@ -235,6 +235,24 @@ These notebooks use [Jurity](https://github.com/fidelity/jurity), an open-source
 **Supplementary Diagnostic Metric:**
 - **FPR Difference** - False positive rate gaps (computed manually in notebooks as an additional diagnostic tool)
 
+**What Jurity Provides (and Doesn't)**
+
+Jurity does:
+- Compute vetted fairness metrics
+- Provide consistent APIs
+- Support binary classification fairness audits
+- Offer strong test coverage
+
+Jurity does not:
+- Debias the model
+- Optimize thresholds
+- Perform automated bias mitigation
+
+**Your Workflow:**
+1. Train model
+2. Evaluate fairness with Jurity
+3. Explore remediations (thresholding, reweighting, feature adjustments, etc.)
+
 **Key Features:**
 - Comprehensive fairness metric collection
 - Simple, consistent API
