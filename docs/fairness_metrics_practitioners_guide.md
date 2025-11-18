@@ -6,7 +6,7 @@ A comprehensive guide to understanding, interpreting, and selecting fairness met
 
 ## Understanding Metric Categories
 
-Different stakeholders need different fairness guarantees. This guide organizes metrics into four practical categories that align with business objectives and regulatory requirements.
+Different stakeholders need different fairness guarantees. This guide organizes metrics into four practical categories that align with business objectives and regulatory requirements. While this guide uses binary examples (common in high-stakes decisions), most fairness metrics also generalize to multi-class and multi-label settings. Jurity supports both.
 
 ---
 
@@ -21,6 +21,7 @@ These metrics help organizations meet legal standards and avoid discrimination l
 - Legal risk is primary concern
 - Initial fairness screening needed
 
+**Important:** All threshold recommendations in this guide are illustrative best practices for internal auditing. They are not regulatory standards and may need to be adapted depending on domain, data, and stakeholder requirements.
 ---
 
 ### Disparate Impact (DI)
@@ -32,8 +33,9 @@ Why it matters: Regulators use the "80% rule" (EEOC Guidelines) as an initial sc
 Interpretation:
 - Protected/Majority ratio ≥ 0.80 = passes regulatory threshold
 - Ratio < 0.80 = regulatory red flag requiring business necessity defense
-- Ratio < 0.70 = high legal risk, immediate intervention needed
+- Ratio < 0.70 = high risk, immediate intervention needed
 
+Note: Thresholds below 0.80 are used in EEOC screening guidance, but finer gradations (e.g., 0.70) are not part of any legal standard—they are risk indicators for internal auditing.
 ---
 
 ### Statistical Parity (SP)
@@ -45,8 +47,9 @@ Why it matters: Large differences in selection rates create legal exposure under
 Interpretation:
 - Difference ≤ 0.05 (5 percentage points) = generally acceptable
 - Difference 0.05-0.10 = notable disparity, monitor closely
-- Difference > 0.10 = significant disparity, legal and reputational risk
+- Difference > 0.10 = significant disparity, reputational risk
 
+These thresholds reflect common internal auditing practices, not formal regulatory standards.
 ---
 
 ## 2. 🎯 Merit-Based Fairness Metrics
@@ -78,7 +81,7 @@ Interpretation:
 
 ### Average Odds (AO)
 
-What it measures: Average of TPR and FPR differences across groups—quantifies distance from Equalized Odds fairness goal.
+What it measures: Average of TPR and FPR differences across groups—quantifies distance from Equalized Odds fairness goal. AO = average(|ΔTPR|, |ΔFPR|)
 
 Why it matters: Provides a single comprehensive metric to track progress toward balanced fairness for both qualified and unqualified individuals across all decision types.
 
@@ -149,7 +152,7 @@ Interpretation:
 
 What it measures: Difference in rates of wrongly approving unqualified individuals between groups.
 
-Why it matters: Identifies if certain groups receive unfair advantages or create disproportionate risk exposure, affecting both fairness and business performance.
+Why it matters: Identifies if certain groups receive unfair advantages (if approvals are beneficial) or create disproportionate risk (if approvals carry cost) exposure, affecting both fairness and business performance.
 
 Interpretation:
 - 0 = equal false approval rates
@@ -177,7 +180,7 @@ These metrics ensure economic benefits and opportunities are distributed fairly 
 
 ### Theil Index
 
-What it measures: How unevenly benefits are distributed across demographic groups relative to their population share.
+What it measures: How unevenly benefits are distributed across demographic groups relative to their population share. Technically, the index is an individual-level inequality measure that can be decomposed to show how much inequality comes from between-group differences.
 
 Why it matters: Quantifies systemic inequality in opportunity allocation—regulators and stakeholders increasingly care about whether AI systems concentrate advantages or distribute them fairly across society.
 
