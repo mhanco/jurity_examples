@@ -141,12 +141,12 @@ Not sure which metrics to use? Start here:
 └───────────────────────────────────────────┘
 ```
 
-See `docs/fairness_metric_categories.md` for detailed stakeholder-specific guidance.
+See `docs/fairness_metrics_practioners_guide.md` for detailed stakeholder-specific guidance.
 
 ## Recommended Learning Path
 
 ### Beginners
-1. Read `fairness_metric_categories.md` for context
+1. Read `docs/fairness_metrics_practioners_guide.md` for context
 2. Start with **Legal Compliance Metrics** (Notebook 1)
 3. Move to **Merit-Based Metrics** (Notebook 2)
 4. Explore other categories as needed
@@ -154,7 +154,7 @@ See `docs/fairness_metric_categories.md` for detailed stakeholder-specific guida
 ### Practitioners
 1. Identify your use case using the decision framework
 2. Jump to the relevant notebook
-3. Reference `fairness_metric_categories.md` for cross-category comparisons
+3. Reference `docs/fairness_metrics_practioners_guide.md` for cross-category comparisons
 
 ### Researchers
 1. Review all notebooks to understand the full landscape
@@ -238,10 +238,11 @@ These notebooks use [Jurity](https://github.com/fidelity/jurity), an open-source
 **What Jurity Provides (and Doesn't)**
 
 Jurity does:
-- Compute vetted fairness metrics
-- Provide consistent APIs
-- Support binary classification fairness audits
-- Offer strong test coverage
+- Vetted fairness metrics for binary, multi-class, and multi-label models
+- Consistent, well-tested APIs across fairness, classification, and recommender metrics
+- Binary + multi-class fairness evaluation workflows
+- A built-in Equalized Odds bias-mitigation method for binary classifiers
+- Strong test coverage ensuring metric correctness and predictable behavior
 
 Jurity does not:
 - Debias the model
