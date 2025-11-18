@@ -94,7 +94,7 @@ Interpretation:
 
 What it measures: Difference in false-positive rates between groups (innocent individuals).
 
-Why it matters: Protects unqualified individuals from false accusations or unfair advantages—critical for maintaining system credibility and avoiding harmful false positives.
+Why it matters: Protects unqualified individuals from false approvals or unfair advantages—critical for maintaining system credibility and avoiding harmful false positives.
 
 Interpretation:
 - 0 = equal protection from false positives
