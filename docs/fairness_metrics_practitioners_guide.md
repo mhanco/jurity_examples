@@ -86,9 +86,9 @@ Why it matters: Provides a single comprehensive metric to track progress toward 
 
 Interpretation:
 - 0 = perfect Equalized Odds achieved
-- < 0.05 = close to fairness goal
+- \< 0.05 = close to fairness goal
 - 0.05-0.10 = moderate gap, improvement needed
-- > 0.10 = far from Equalized Odds, comprehensive review required
+- \> 0.10 = far from Equalized Odds, comprehensive review required
 
 ---
 
