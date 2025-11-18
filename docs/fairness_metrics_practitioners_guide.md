@@ -8,6 +8,8 @@ A comprehensive guide to understanding, interpreting, and selecting fairness met
 
 Different stakeholders need different fairness guarantees. This guide organizes metrics into four practical categories that align with business objectives and regulatory requirements. While this guide uses binary examples (common in high-stakes decisions), most fairness metrics also generalize to multi-class and multi-label settings. Jurity supports both.
 
+**Important:** All threshold recommendations in this guide are illustrative best practices for internal auditing. They are not regulatory standards and may need to be adapted depending on domain, data, and stakeholder requirements.
+
 ---
 
 ## 1. 🏛️ Legal Compliance Metrics
@@ -21,7 +23,6 @@ These metrics help organizations meet legal standards and avoid discrimination l
 - Legal risk is primary concern
 - Initial fairness screening needed
 
-**Important:** All threshold recommendations in this guide are illustrative best practices for internal auditing. They are not regulatory standards and may need to be adapted depending on domain, data, and stakeholder requirements.
 ---
 
 ### Disparate Impact (DI)
@@ -49,7 +50,6 @@ Interpretation:
 - Difference 0.05-0.10 = notable disparity, monitor closely
 - Difference > 0.10 = significant disparity, reputational risk
 
-These thresholds reflect common internal auditing practices, not formal regulatory standards.
 ---
 
 ## 2. 🎯 Merit-Based Fairness Metrics
