@@ -74,7 +74,7 @@ Why it matters: If one group's qualified candidates are selected less often, you
 Interpretation:
 - 0 = perfect parity
 - Closer to 0 = fairer with respect to qualified candidates
-- > 0.10 = significant talent loss from underrepresented group
+- \> 0.10 = significant talent loss from underrepresented group
 
 ---
 
@@ -101,7 +101,7 @@ Why it matters: Protects unqualified individuals from false approvals or unfair 
 Interpretation:
 - 0 = equal protection from false positives
 - Closer to 0 = fairer protection for innocent individuals
-- > 0.05 = one group unfairly affected by false approvals
+- \> 0.05 = one group unfairly affected by false approvals
 
 ---
 
@@ -127,9 +127,9 @@ Why it matters: Reveals if your model systematically overlooks qualified talent 
 
 Interpretation:
 - 0 = equal miss rates across groups
-- < 0.05 = acceptable variation
+- \< 0.05 = acceptable variation
 - 0.05-0.10 = moderate talent loss, adjust thresholds
-- > 0.10 = severe talent loss, immediate model fix required
+- \> 0.10 = severe talent loss, immediate model fix required
 
 ---
 
@@ -141,9 +141,9 @@ Why it matters: High FOR differences mean your model's rejections are less trust
 
 Interpretation:
 - 0 = equally reliable rejections
-- < 0.05 = acceptable calibration
+- \< 0.05 = acceptable calibration
 - 0.05-0.10 = moderate reliability gap
-- > 0.10 = severe miscalibration, recalibrate model
+- \> 0.10 = severe miscalibration, recalibrate model
 
 ---
 
@@ -155,9 +155,9 @@ Why it matters: Identifies if certain groups receive unfair advantages (if appro
 
 Interpretation:
 - 0 = equal false approval rates
-- < 0.05 = acceptable consistency
+- \< 0.05 = acceptable consistency
 - 0.05-0.10 = moderate inconsistency, review criteria
-- > 0.10 = severe risk imbalance, tighten approval standards
+- \> 0.10 = severe risk imbalance, tighten approval standards
 
 **Note:** FPR Difference is a supplementary diagnostic metric that may need to be computed manually (not always part of core fairness library APIs).
 
@@ -188,7 +188,7 @@ Interpretation:
 - 0.00-0.10 = low inequality, relatively fair distribution
 - 0.10-0.25 = moderate inequality, some groups advantaged
 - 0.25-0.50 = high inequality, significant distributional issues
-- > 0.50 = severe inequality, major systemic bias
+- \> 0.50 = severe inequality, major systemic bias
 
 ---
 
@@ -208,9 +208,9 @@ Interpretation:
 
 Score interpretation (all α values):
 - 0 = perfect equality
-- < 0.15 = acceptable distributional fairness
+- \< 0.15 = acceptable distributional fairness
 - 0.15-0.30 = moderate distributional concerns
-- > 0.30 = significant distributional inequality
+- \> 0.30 = significant distributional inequality
 
 ---
 
