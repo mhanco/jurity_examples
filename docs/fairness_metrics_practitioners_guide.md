@@ -35,7 +35,6 @@ Interpretation:
 - Protected/Majority ratio ≥ 0.80 = passes regulatory threshold
 - Ratio < 0.80 = regulatory red flag requiring business necessity defense
 - Ratio < 0.70 = high risk, immediate intervention needed
-
 **Note:** Thresholds below 0.80 are used in EEOC screening guidance, but finer gradations (e.g., 0.70) are not part of any legal standard—they are risk indicators for internal auditing.
 ---
 
