@@ -287,6 +287,7 @@ The notebooks use scikit-learn's Random Forest for demonstrations:
 ```
 README.md                              # This file
 docs/
+├── fairness_metric_descriptions.md        # Legal/regulatory fairness
 └── fairness_metric_categories.md          # Stakeholder decision guide
 notebooks/
 ├── 1_legal_compliance_metrics.ipynb       # Legal/regulatory fairness
